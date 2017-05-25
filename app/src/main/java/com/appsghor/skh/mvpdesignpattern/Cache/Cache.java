@@ -1,6 +1,6 @@
 package com.appsghor.skh.mvpdesignpattern.Cache;
 
-import com.appsghor.skh.mvpdesignpattern.Features.Presenter;
+import com.appsghor.skh.mvpdesignpattern.Features.IPresenter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,32 +11,32 @@ import java.util.UUID;
  * Created by SKH PC on 5/24/2017.
  */
 
-public class Cache implements Serializable{
+public class Cache implements Serializable {
 
-    private  static Cache mCacheInstances;
-    private Map<UUID,Presenter> mCaches;
+    private static Cache mCacheInstances;
+    private Map<UUID, IPresenter> mCaches;
 
-    public static Cache getCacheInstances(){
-        if(mCacheInstances == null){
+    public static Cache getCacheInstances() {
+        if (mCacheInstances == null) {
             mCacheInstances = new Cache();
         }
         return mCacheInstances;
 
     }
 
-    private Cache(){
-        mCaches = new HashMap<UUID, Presenter>() ;
+    private Cache() {
+        mCaches = new HashMap<UUID, IPresenter>();
 
     }
 
 
-    public  void cachePresenterFor(UUID uuid , Presenter presenter){
-        mCaches.put(uuid,presenter);
+    public void cachePresenterFor(UUID uuid, IPresenter IPresenter) {
+        mCaches.put(uuid, IPresenter);
     }
 
-    public Presenter restorePresenter(UUID uuid){
-        Presenter mPresenter = mCaches.get(uuid);
-        mCaches.remove(mPresenter);
-        return mPresenter;
+    public IPresenter restorePresenter(UUID uuid) {
+        IPresenter mIPresenter = mCaches.get(uuid);
+        mCaches.remove(mIPresenter);
+        return mIPresenter;
     }
 }

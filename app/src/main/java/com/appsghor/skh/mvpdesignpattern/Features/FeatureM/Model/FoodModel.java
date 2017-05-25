@@ -12,16 +12,16 @@ public class FoodModel {
 
     public String requestAction2(){
         //compute some data here
-        return "Response One";
+        return "Response Two";
     }
 
     public String requestAction3(){
         //compute some data here
-        return "Response One";
+        return "Response Three";
     }
 
     public String requestAction4(){
         //compute some data here
-        return "Response One";
+        return "Response Four";
     }
 }
