@@ -1,6 +1,9 @@
 package com.appsghor.skh.mvpdesignpattern.Features.FeatureM.View;
 
+import com.appsghor.skh.mvpdesignpattern.Features.FeatureM.Model.Food;
 import com.appsghor.skh.mvpdesignpattern.Features.IScreen;
+
+import java.util.List;
 
 /**
  * Created by Acer on 5/25/2017.
@@ -17,5 +20,5 @@ public interface IFoodView extends IScreen {
     void postResult3(String result);
 
     void requestAction4();
-    void postResult4(String result);
+    void postResult4( List<Food> result);
 }

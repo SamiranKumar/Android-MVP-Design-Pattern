@@ -26,11 +26,15 @@
         android:layout_below="@+id/tv_food_2"
         android:padding="10dp" />
 
-    <TextView
-        android:id="@+id/tv_food_4"
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:layout_below="@+id/tv_food_3"
-        android:padding="10dp" />
+        />
+
 
 </RelativeLayout>

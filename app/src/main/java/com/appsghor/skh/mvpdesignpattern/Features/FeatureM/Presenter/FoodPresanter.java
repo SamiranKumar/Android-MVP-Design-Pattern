@@ -2,18 +2,22 @@ package com.appsghor.skh.mvpdesignpattern.Features.FeatureM.Presenter;
 
 import android.os.AsyncTask;
 
+import com.appsghor.skh.mvpdesignpattern.Common.ILogName;
+import com.appsghor.skh.mvpdesignpattern.Common.LogUtility;
 import com.appsghor.skh.mvpdesignpattern.Common.Util;
+import com.appsghor.skh.mvpdesignpattern.Features.FeatureM.Model.Food;
 import com.appsghor.skh.mvpdesignpattern.Features.FeatureM.Model.FoodModel;
 import com.appsghor.skh.mvpdesignpattern.Features.FeatureM.View.IFoodView;
 import com.appsghor.skh.mvpdesignpattern.Features.IScreen;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by Acer on 5/25/2017.
  */
 
-public class FoodPresanter implements IFoodPresenter {
+public class FoodPresanter implements IFoodPresenter,ILogName {
 
     private UUID uuid;
     private IFoodView foodView;
@@ -82,16 +86,16 @@ public class FoodPresanter implements IFoodPresenter {
 
     @Override
     public void RequastAction4() {
-        new AsyncTask<Void, Void, String>() {
+        new AsyncTask<Void, Void, List<Food>>() {
             @Override
-            protected String doInBackground(Void... params) {
+            protected List<Food> doInBackground(Void... params) {
                 Util.simulateNetworkLatency(2000);
                 return foodModel.requestAction4();
 
             }
 
             @Override
-            protected void onPostExecute(String s) {
+            protected void onPostExecute(List<Food> s) {
                 super.onPostExecute(s);
                 foodView.postResult4(s);
             }
@@ -105,6 +109,17 @@ public class FoodPresanter implements IFoodPresenter {
 
     @Override
     public UUID getUuid() {
+        printLog(new Object(){}.getClass().getEnclosingMethod().toString());
         return uuid;
+    }
+
+    @Override
+    public String getLogName() {
+        return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public void printLog(String message) {
+        LogUtility.printMessage("["+getLogName()+"] : " + message);
     }
 }
