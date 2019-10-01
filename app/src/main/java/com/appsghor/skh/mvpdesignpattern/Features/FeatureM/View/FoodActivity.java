@@ -1,7 +1,6 @@
 package com.appsghor.skh.mvpdesignpattern.Features.FeatureM.View;
 
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
